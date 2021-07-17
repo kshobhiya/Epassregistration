@@ -64,7 +64,6 @@ $fname = $lname = $email =$mobilenum ="";
 
  if(isset($_POST["update"])){
     
-  
       $formid=$_POST["formid"];
       $fname=$_POST["firstname"];
       $lname=$_POST["lastname"];

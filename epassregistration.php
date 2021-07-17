@@ -50,6 +50,7 @@
     <select name="district" id="district" value="<?php echo $district;?>">
     <option value="0">--Select District--</option>
     <?php
+    
         $con = mysqli_connect("localhost","root","","country state city");
         $sql="SELECT * FROM `district`";
         $result=mysqli_query($con,$sql);
