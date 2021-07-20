@@ -37,8 +37,10 @@
         $mail->Subject="Epass Registration Confirmation";
         $mail->setFrom("programmingcontrol02@gmail.com");
         $mail->Body=" Epass has been registered successfully<br>
-                    in name:$fname $lname<br>
-                    on date:$date<br>
+                    Name:$fname $lname<br>
+                    Mobile number:$mobilenum<br>
+                    Date:$date<br>
+                    Reason for travel:$reason<br>
                     vechile number:$vehicle<br>
                     Epass has been valid for 5days from the date of travel registered.";
         $mail->addAddress($email);

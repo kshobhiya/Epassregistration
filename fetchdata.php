@@ -32,6 +32,18 @@ if(isset($_SESSION["sessionId"])){
     $result=mysqli_query($conn,$sql);
     $recordsFiltered=mysqli_num_rows($result);
     while($row=mysqli_fetch_assoc($result)){
+        $fromplace=$row["from place"];
+        $destinationplace=$row["destination place"];
+        $sqlquery1="SELECT `cities` FROM `cities` WHERE `city_id`=$fromplace";
+        $result1=mysqli_query($conn,$sqlquery1);
+        while($row1=mysqli_fetch_array($result1)){ 
+            $startarea=$row1["cities"];
+        }
+        $sqlquery2="SELECT `cities` FROM `cities` WHERE `city_id`=$destinationplace";
+        $result2=mysqli_query($conn,$sqlquery2);
+        while($row2=mysqli_fetch_array($result2)){ 
+            $destinationarea=$row2["cities"];
+        }
         $edit ="<button> <a href='update.php?formid=".$row["form id"]."'> EDIT </a> </button><br>";
         $delete ="<button> <a href='delete.php?formid=".$row["form id"]."'> DELETE </a> </button><br>";
         //$delete="<button type='button' id='delete'>DELETE</button>";
@@ -42,19 +54,13 @@ if(isset($_SESSION["sessionId"])){
         $subarray[]=$row["email"];
         $subarray[]=$row["phonenumber"];
         $subarray[]=$row["reason"];
-        $subarray[]=$row["from place"];
-        $subarray[]=$row["destination place"];
+        $subarray[]=$startarea;
+        $subarray[]=$destinationarea;
         $subarray[]=$row["date"];
         $subarray[]=$row["vehicle number"];
         $subarray[]=$row["file for reason"];
         $subarray[]=$edit."<br>".$delete;
         $data[]=$subarray;
-        /*$id=$row["from place"];
-        $sqlquery="SELECT * FROM `cities`";
-        $answer=mysqli_query($conn,$sqlquery);
-        while($row=mysqli_fetch_assoc($answer)){
-            $from=($row["city_id"]==$id)?$row["cities"]:" ";
-        }*/  
     } 
     $output=array(
         //"draw" => intval($_POST["draw"]),
