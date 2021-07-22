@@ -26,10 +26,10 @@
 <br><br>
 <div id="reason">
 <label for="reason">Select Reason:</label>
-<input type="radio" name="reason" value="marriage" required>Marriage
-<?php if(isset($reason) && $reason=="marriage"){echo "checked";}?>
-<input type="radio" name="reason" value="medical emergency" required>Medical Emergency
-<?php if(isset($reason) && $reason=="medical emergency"){echo "checked";}?>
+<input type="radio" name="reason" 
+<?php if(isset($reason) && $reason=="marriage"){echo "checked";}?>value="marriage" required>Marriage
+<input type="radio" name="reason" 
+<?php if(isset($reason) && $reason=="medical emergency"){echo "checked";}?>value="medical emergency" required>Medical Emergency
 <span class="error"><?php if(isset($reasonErr)) {echo $reasonErr;}?></span>
 </div><br>
 <label><b>From place of travel:</b></label><br><br>
@@ -45,6 +45,7 @@
         }
     ?>
 </select>
+<span class="error"><?php if(isset($districtErr)){echo $districtErr;}?></span>
 <label for="city">Select City:</label>
 <select name="city" id="city" value="<?php echo $city;?>">
     <option value="0">--Select city--</option>

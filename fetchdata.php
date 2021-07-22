@@ -67,7 +67,7 @@ if(isset($_SESSION["sessionId"])){
         "recordTotal" => intval($recordsTotal),
         "recordFiltered" => intval($recordsFiltered),
         "data" => $data,
-    );    
+    );   
     echo json_encode($output);
 }
-?>
+?> 

@@ -101,8 +101,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         }elseif(!preg_match("/^[a-zA-Z\d]*$/",$vehicle)){
             $vehicleErr="enter a valid vehicle number";
         }elseif(empty($_FILES["file"]["name"])){
-            header("Location:epassregistration.php?error=resonable file for epass should be upload");
-            //$fileErr="reasonable file for epass should be upload";
+            //header("Location:epassregistration.php?error=resonable file for epass should be upload");
+            $fileErr="reasonable file for epass should be upload";
         }else{
             if(isset($_FILES["file"]["name"])){
                 $destination=uploadfile($_FILES["file"]["name"]);
@@ -115,7 +115,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                     echo "sql error";
                 }
             }
-        }              
+        }           
     }
 }
 ?>
